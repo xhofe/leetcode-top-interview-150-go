@@ -3,6 +3,7 @@ package main
 type TrieNode struct {
 	IsEnd    bool
 	Children [26]*TrieNode
+	Word     string
 }
 
 type Trie struct {
@@ -25,6 +26,7 @@ func (this *Trie) Insert(word string) {
 		node = node.Children[b]
 	}
 	node.IsEnd = true
+	node.Word = word
 }
 
 func (this *Trie) Search(word string) bool {
